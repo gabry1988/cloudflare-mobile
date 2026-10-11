@@ -294,6 +294,19 @@ class LRu extends L {
   String get authCreateToken => 'Создать токен в панели';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare откроется, и большинство прав уже будут отмечены. Добавьте вручную те, что перечислены ниже, создайте токен и вставьте его сюда.';
+
+  @override
+  String get authPresetFull => 'Чтение и запись';
+
+  @override
+  String get authPresetDnsOnly => 'Только DNS';
+
+  @override
+  String get authPresetReadOnly => 'Только чтение';
+
+  @override
   String get authManualPermsTitle => 'Добавьте вручную';
 
   @override

@@ -294,6 +294,19 @@ class LAz extends L {
   String get authCreateToken => 'Paneldə token yarat';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare icazələrin əksəriyyəti artıq işarələnmiş halda açılır. Aşağıda göstərilənləri əl ilə əlavə edin, tokeni yaradın və sonra buraya yapışdırın.';
+
+  @override
+  String get authPresetFull => 'Oxuma + yazma';
+
+  @override
+  String get authPresetDnsOnly => 'Yalnız DNS';
+
+  @override
+  String get authPresetReadOnly => 'Yalnız oxuma';
+
+  @override
   String get authManualPermsTitle => 'Bunları əl ilə əlavə edin';
 
   @override

@@ -294,6 +294,19 @@ class LEs extends L {
   String get authCreateToken => 'Crear un token en el panel';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare se abre con la mayoría de los permisos ya marcados. Añade a mano los que aparecen abajo, crea el token y pégalo aquí.';
+
+  @override
+  String get authPresetFull => 'Lectura + escritura';
+
+  @override
+  String get authPresetDnsOnly => 'Solo DNS';
+
+  @override
+  String get authPresetReadOnly => 'Solo lectura';
+
+  @override
   String get authManualPermsTitle => 'Añade estos a mano';
 
   @override

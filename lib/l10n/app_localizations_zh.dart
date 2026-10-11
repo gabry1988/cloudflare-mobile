@@ -288,6 +288,19 @@ class LZh extends L {
   String get authCreateToken => '在控制台创建令牌';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare 打开时已勾选大部分权限。请手动添加下方列出的权限，创建令牌后粘贴到这里。';
+
+  @override
+  String get authPresetFull => '读写';
+
+  @override
+  String get authPresetDnsOnly => '仅 DNS';
+
+  @override
+  String get authPresetReadOnly => '只读';
+
+  @override
   String get authManualPermsTitle => '这些需要手动添加';
 
   @override

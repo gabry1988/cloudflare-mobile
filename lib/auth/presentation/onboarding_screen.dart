@@ -34,6 +34,10 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   CfCredential? _pending;
   bool _busy = false;
+
+  /// The preset whose link was opened last, so the checklist below asks for
+  /// the same access level — or for nothing, when DNS-only needs no extras.
+  List<CfPermission> _preset = TokenTemplate.full;
   String? _error;
 
   @override
@@ -104,16 +108,19 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     ],
   );
 
+  void _choose(List<CfPermission> preset) {
+    setState(() => _preset = preset);
+    _open(TokenTemplate.userToken(preset));
+  }
+
   Widget _tokenForm(L l) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(l.authApiToken, style: context.headline),
       const SizedBox(height: 8),
-      Text(
-        'Cloudflare opens with the right permissions already ticked. '
-        'Create the token, then paste it here.',
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
+      // Not "every permission": the link format cannot carry all of them, and
+      // saying so is what makes people read the checklist below.
+      Text(l.authTokenFormHint, style: Theme.of(context).textTheme.bodyMedium),
       const SizedBox(height: 16),
       // Full access leads: it is the one that makes every screen work, and
       // anyone who wants less already knows they do.
@@ -123,26 +130,24 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           FilledButton.icon(
-            onPressed: () => _open(TokenTemplate.userToken(TokenTemplate.full)),
+            onPressed: () => _choose(TokenTemplate.full),
             icon: const Icon(Icons.all_inclusive),
-            label: const Text('Read + write'),
+            label: Text(l.authPresetFull),
           ),
           OutlinedButton.icon(
-            onPressed: () =>
-                _open(TokenTemplate.userToken(TokenTemplate.dnsAdmin)),
+            onPressed: () => _choose(TokenTemplate.dnsAdmin),
             icon: const Icon(Icons.dns_outlined),
-            label: const Text('DNS only'),
+            label: Text(l.authPresetDnsOnly),
           ),
           OutlinedButton.icon(
-            onPressed: () =>
-                _open(TokenTemplate.userToken(TokenTemplate.readOnly)),
+            onPressed: () => _choose(TokenTemplate.readOnly),
             icon: const Icon(Icons.visibility_outlined),
-            label: const Text('Read only'),
+            label: Text(l.authPresetReadOnly),
           ),
         ],
       ),
       const SizedBox(height: 12),
-      ManualPermissions(permissions: TokenTemplate.full),
+      ManualPermissions(permissions: _preset),
       const SizedBox(height: 20),
       TextField(
         controller: _token,
