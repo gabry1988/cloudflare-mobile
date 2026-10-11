@@ -294,6 +294,19 @@ class LDe extends L {
   String get authCreateToken => 'Token im Dashboard erstellen';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare öffnet sich mit den meisten Berechtigungen bereits angekreuzt. Füge die unten aufgeführten von Hand hinzu, erstelle das Token und füge es dann hier ein.';
+
+  @override
+  String get authPresetFull => 'Lesen + Schreiben';
+
+  @override
+  String get authPresetDnsOnly => 'Nur DNS';
+
+  @override
+  String get authPresetReadOnly => 'Nur lesen';
+
+  @override
   String get authManualPermsTitle => 'Diese von Hand hinzufügen';
 
   @override

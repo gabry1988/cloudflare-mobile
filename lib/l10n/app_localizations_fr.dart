@@ -297,6 +297,19 @@ class LFr extends L {
   String get authCreateToken => 'Créer un jeton dans le tableau de bord';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare s\'ouvre avec la plupart des permissions déjà cochées. Ajoutez à la main celles listées ci-dessous, créez le jeton, puis collez-le ici.';
+
+  @override
+  String get authPresetFull => 'Lecture + écriture';
+
+  @override
+  String get authPresetDnsOnly => 'DNS uniquement';
+
+  @override
+  String get authPresetReadOnly => 'Lecture seule';
+
+  @override
   String get authManualPermsTitle => 'À ajouter à la main';
 
   @override

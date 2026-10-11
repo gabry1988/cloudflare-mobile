@@ -661,6 +661,30 @@ abstract class L {
   /// **'Create a token in the dashboard'**
   String get authCreateToken;
 
+  /// No description provided for @authTokenFormHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudflare opens with most permissions already ticked. Add the ones listed below by hand, create the token, then paste it here.'**
+  String get authTokenFormHint;
+
+  /// No description provided for @authPresetFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Read + write'**
+  String get authPresetFull;
+
+  /// No description provided for @authPresetDnsOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'DNS only'**
+  String get authPresetDnsOnly;
+
+  /// No description provided for @authPresetReadOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Read only'**
+  String get authPresetReadOnly;
+
   /// No description provided for @authManualPermsTitle.
   ///
   /// In en, this message translates to:

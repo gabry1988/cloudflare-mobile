@@ -293,6 +293,19 @@ class LEn extends L {
   String get authCreateToken => 'Create a token in the dashboard';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare opens with most permissions already ticked. Add the ones listed below by hand, create the token, then paste it here.';
+
+  @override
+  String get authPresetFull => 'Read + write';
+
+  @override
+  String get authPresetDnsOnly => 'DNS only';
+
+  @override
+  String get authPresetReadOnly => 'Read only';
+
+  @override
   String get authManualPermsTitle => 'Add these by hand';
 
   @override

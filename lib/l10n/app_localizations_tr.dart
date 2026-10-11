@@ -293,6 +293,19 @@ class LTr extends L {
   String get authCreateToken => 'Panelde belirteç oluştur';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare izinlerin çoğu zaten işaretlenmiş olarak açılır. Aşağıda listelenenleri elle ekleyin, belirteci oluşturun ve buraya yapıştırın.';
+
+  @override
+  String get authPresetFull => 'Okuma + yazma';
+
+  @override
+  String get authPresetDnsOnly => 'Yalnızca DNS';
+
+  @override
+  String get authPresetReadOnly => 'Salt okunur';
+
+  @override
   String get authManualPermsTitle => 'Bunları elle ekleyin';
 
   @override
