@@ -296,6 +296,19 @@ class LIt extends L {
   String get authCreateToken => 'Crea un token nella dashboard';
 
   @override
+  String get authTokenFormHint =>
+      'Cloudflare si apre con la maggior parte delle autorizzazioni già selezionate. Aggiungi a mano quelle elencate qui sotto, crea il token e incollalo qui.';
+
+  @override
+  String get authPresetFull => 'Lettura + scrittura';
+
+  @override
+  String get authPresetDnsOnly => 'Solo DNS';
+
+  @override
+  String get authPresetReadOnly => 'Sola lettura';
+
+  @override
   String get authManualPermsTitle => 'Aggiungili manualmente';
 
   @override
